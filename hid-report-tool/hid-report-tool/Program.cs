@@ -88,17 +88,17 @@ namespace hid_report_tool
                         switch (cmds[1])
                         {
                             case "send":
-                                selected_device.OpenDevice();
-
-                                byte report_id = 0;
-                                byte[] report_data_raw;
-                                byte[] report_data = new byte[selected_device.Capabilities.OutputReportByteLength - 1];
-
                                 if (selected_device == null)
                                 {
                                     Console.WriteLine("No device selected.");
                                     break;
                                 }
+
+                                selected_device.OpenDevice();
+
+                                byte report_id = 0;
+                                byte[] report_data_raw;
+                                byte[] report_data = new byte[selected_device.Capabilities.OutputReportByteLength - 1];
 
                                 if (cmds.Count() < 4)
                                 {
